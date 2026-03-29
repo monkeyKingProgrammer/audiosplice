@@ -18,7 +18,7 @@
         
         <main>
             <div id="upload-section" class="card">
-                <input type="file" id="audio-input" accept=".mp3,.wav,.mp4,.mpeg" multiple>
+                <input type="file" id="audio-input" accept="audio/mpeg, audio/wav, video/mp4">
                 <label for="audio-input" class="btn primary-btn">Select Audio/Video File</label>
                 <div id="file-name">No file selected</div>
             </div>
@@ -30,7 +30,7 @@
                     <button id="btn-split-channels" class="btn" title="Save Left/Right channels as separate Mono WAV files">Split L/R</button>
                     <div class="spacer"></div>
                     
-                    <input type="file" id="stamp-input" accept=".mp3,.wav,.mp4,.mpeg" multiple class="hidden">
+                    <input type="file" id="stamp-input" accept="audio/mpeg, audio/wav, video/mp4" class="hidden">
                     <label for="stamp-input" class="btn" style="border-color: #a855f7; color: #c084fc;" title="Upload a short audio clip to automatically find and remove it from the main track">Auto-Detect Stamp</label>
 
                     <button id="btn-export-wav" class="btn">Save WAV</button>
