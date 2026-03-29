@@ -236,6 +236,60 @@ input[type="file"] {
     overflow: hidden;
 }
 
+.instructions-card {
+    background: rgba(15, 23, 42, 0.5);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.5rem;
+    color: var(--text-muted);
+}
+
+.instructions-card h3 {
+    color: var(--text-main);
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.guide-steps {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    text-align: left;
+}
+
+.step {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+}
+
+.step-num {
+    background: var(--border);
+    color: var(--text-main);
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 0.8rem;
+    flex-shrink: 0;
+}
+
+.step p {
+    font-size: 0.9rem;
+    line-height: 1.4;
+    margin: 0;
+}
+
+.highlight-purple { color: #a855f7; font-weight: 600; }
+.highlight-blue { color: var(--primary); font-weight: 600; }
+.highlight-green { color: #10b981; font-weight: 600; }
+.highlight-orange { color: #f59e0b; font-weight: 600; }
+
 @media (max-width: 768px) {
     body {
         padding: 1rem;
