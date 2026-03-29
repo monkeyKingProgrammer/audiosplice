@@ -6,6 +6,7 @@ import { Mp3Encoder } from '@breezystack/lamejs';
 
 // DOM Elements
 const audioInput = document.getElementById('audio-input');
+const videoInput = document.getElementById('video-input');
 const stampInput = document.getElementById('stamp-input');
 const fileNameDisplay = document.getElementById('file-name');
 const uploadSection = document.getElementById('upload-section');
@@ -209,7 +210,7 @@ function initWavesurfer() {
 }
 
 // Handle file upload
-audioInput.addEventListener('change', (e) => {
+const handleFileUpload = (e) => {
     const file = e.target.files[0];
     if (!file) return;
 
@@ -222,7 +223,10 @@ audioInput.addEventListener('change', (e) => {
     
     const objectUrl = URL.createObjectURL(file);
     wavesurfer.load(objectUrl);
-});
+};
+
+audioInput.addEventListener('change', handleFileUpload);
+videoInput.addEventListener('change', handleFileUpload);
 
 // Controls
 btnPlayPause.addEventListener('click', () => {

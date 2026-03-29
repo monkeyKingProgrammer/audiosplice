@@ -18,8 +18,16 @@
         
         <main>
             <div id="upload-section" class="card">
-                <input type="file" id="audio-input">
-                <label for="audio-input" class="btn primary-btn">Select Audio/Video File</label>
+                <div class="upload-options">
+                    <div class="upload-item">
+                        <input type="file" id="audio-input" accept="audio/mpeg, audio/wav, audio/mp3, .mp3, .wav">
+                        <label for="audio-input" class="btn primary-btn">Select Audio File</label>
+                    </div>
+                    <div class="upload-item">
+                        <input type="file" id="video-input" accept="video/mp4, video/x-m4v, .mp4">
+                        <label for="video-input" class="btn" style="border-color: var(--primary); color: var(--primary);">Select Video File</label>
+                    </div>
+                </div>
                 <div id="file-name">No file selected</div>
             </div>
 
