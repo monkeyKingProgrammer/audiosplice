@@ -196,8 +196,48 @@ input[type="file"] {
 .highlight-green { color: #10b981; font-weight: 600; }
 
 @media (max-width: 600px) {
+    #app {
+        padding: 1rem;
+        gap: 1.2rem;
+    }
+
+    header h1 {
+        font-size: 1.8rem;
+    }
+
+    .card {
+        padding: 1.5rem;
+    }
+
+    .toolbar {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.5rem;
+    }
+
+    .toolbar .btn {
+        flex: 1 1 45%; /* Two buttons per row roughly */
+        font-size: 0.85rem;
+        padding: 0.5rem;
+    }
+
+    .toolbar .spacer {
+        display: none;
+    }
+
+    /* Make the Auto-Detect label look like a button on mobile too */
+    label[for="stamp-input"] {
+        flex: 1 1 100% !important;
+        text-align: center;
+    }
+
     .guide-steps {
         grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .instructions-card {
+        padding: 1rem;
     }
 }
 

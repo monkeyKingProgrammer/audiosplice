@@ -236,6 +236,68 @@ input[type="file"] {
     overflow: hidden;
 }
 
+@media (max-width: 768px) {
+    body {
+        padding: 1rem;
+    }
+
+    header h1 {
+        font-size: 1.8rem;
+    }
+
+    .upload-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .controls-panel {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1.5rem;
+    }
+
+    .slider-group {
+        width: 100%;
+    }
+
+    .toolbar {
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 1rem;
+    }
+
+    .time-display {
+        order: -1; /* Put time at the top */
+        width: 100%;
+        text-align: center;
+    }
+
+    .track-selector {
+        border: none;
+        padding: 0.5rem 0;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .toolbar .btn {
+        flex: 1 1 45%;
+        font-size: 0.8rem;
+        padding: 0.5rem;
+    }
+
+    .toolbar .spacer {
+        display: none;
+    }
+
+    .tracks-container {
+        gap: 0.5rem;
+    }
+
+    .track {
+        padding: 0.5rem;
+    }
+}
+
 .hidden {
     display: none !important;
 }

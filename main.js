@@ -165,6 +165,9 @@ function initWavesurfer() {
         wavesurfer.destroy();
     }
 
+    const isMobile = window.innerWidth <= 600;
+    const wfHeight = isMobile ? 80 : 120;
+
     wavesurfer = WaveSurfer.create({
         container: '#waveform',
         waveColor: '#3b82f6',
@@ -173,7 +176,7 @@ function initWavesurfer() {
         barWidth: 2,
         barGap: 1,
         barRadius: 2,
-        height: 120,
+        height: wfHeight,
         normalize: true,
         plugins: [
             TimelinePlugin.create({

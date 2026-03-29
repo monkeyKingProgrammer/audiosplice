@@ -39,6 +39,9 @@ let activeWs = null; // keeps track of which wavesurfer is meant to be playing
 
 // Initialize Wavesurfers
 function initWavesurfers() {
+    const isMobile = window.innerWidth <= 768;
+    const wfHeight = isMobile ? 60 : 100;
+
     const wsOptions = {
         waveColor: '#64748b',
         progressColor: '#8b5cf6',
@@ -47,7 +50,7 @@ function initWavesurfers() {
         barWidth: 2,
         barGap: 1,
         barRadius: 2,
-        height: 100,
+        height: wfHeight,
         normalize: false,
     };
 
