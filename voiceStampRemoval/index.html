@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voice Stamp Removal</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="app">
+        <header>
+            <h1>Voice Stamp Removal</h1>
+            <p>Phase cancellation based audio cleaner</p>
+        </header>
+        
+        <main>
+            <div id="upload-section" class="card upload-grid">
+                <div class="input-group">
+                    <input type="file" id="main-audio-input" accept="audio/mpeg, audio/wav, audio/mp3">
+                    <label for="main-audio-input" class="btn primary-btn">1. Select Main Audio</label>
+                    <div id="main-file-name" class="file-name">No main file selected</div>
+                </div>
+
+                <div class="input-group">
+                    <input type="file" id="stamp-audio-input" accept="audio/mpeg, audio/wav, audio/mp3" disabled>
+                    <label for="stamp-audio-input" id="stamp-label" class="btn disabled-btn">2. Select Voice Stamp</label>
+                    <div id="stamp-file-name" class="file-name">No stamp selected</div>
+                </div>
+            </div>
+
+            <div id="editor-section" class="hidden">
+                <div class="controls-panel card">
+                    <div class="slider-group">
+                        <label for="start-delay-slider">Initial Start Delay (s): <input type="number" id="start-delay-value" class="number-input" value="0.0" step="0.01" min="0"></label>
+                        <input type="range" id="start-delay-slider" min="0" max="60" step="0.01" value="0.0">
+                        <small class="hint">Wait this long before placing the very first stamp</small>
+                    </div>
+                    
+                    <div class="slider-group">
+                        <label for="delay-slider">Gap Between Stamps (s): <input type="number" id="delay-value" class="number-input" value="1.0" step="0.01" min="0"></label>
+                        <input type="range" id="delay-slider" min="0" max="10" step="0.01" value="1.0">
+                        <small class="hint">Time gap between the end of a stamp and the start of the next</small>
+                    </div>
+                    <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                        <button id="btn-process-stamps" class="btn primary-btn">Preview Stamps</button>
+                        <button id="btn-process-result" class="btn danger-btn">Generate Subtraction Result</button>
+                    </div>
+                </div>
+
+                <div class="toolbar">
+                    <button id="btn-play-pause" class="btn">Play</button>
+                    
+                    <div class="time-display">
+                        Time: <span id="current-time-display">0.00</span>s
+                    </div>
+
+                    <div class="track-selector">
+                        <span>Play Track:</span>
+                        <label><input type="radio" name="play-track" value="original" checked> Original</label>
+                        <label><input type="radio" name="play-track" value="stamp"> Stamp Track</label>
+                        <label><input type="radio" name="play-track" value="result"> Result Track</label>
+                    </div>
+
+                    <div class="spacer"></div>
+                    <button id="btn-export-wav" class="btn">Save Result WAV</button>
+                    <button id="btn-export-mp3" class="btn">Save Result MP3</button>
+                </div>
+                
+                <div id="tracks-wrapper" style="position: relative;">
+                    <div id="global-cursor" class="hidden"></div>
+                    <div class="tracks-container">
+                        <div class="track card">
+                            <div class="track-header">Track 1: Original Audio</div>
+                            <div id="waveform-original" class="waveform"></div>
+                            <div id="timeline-original"></div>
+                        </div>
+                        
+                        <div class="track card">
+                            <div class="track-header">Track 2: Periodic Stamp Track</div>
+                            <div id="waveform-stamp" class="waveform"></div>
+                            <div id="timeline-stamp"></div>
+                        </div>
+
+                        <div class="track card">
+                            <div class="track-header">Track 3: Result (Original - Stamp)</div>
+                            <div id="waveform-result" class="waveform"></div>
+                            <div id="timeline-result"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        
+        <div id="loading-overlay" class="hidden">
+            <div class="spinner"></div>
+            <p id="loading-text">Processing...</p>
+        </div>
+    </div>
+    <script type="module" src="./main.js"></script>
+</body>
+</html>

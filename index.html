@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AudioSplice</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="app">
+        <header>
+            <h1>AudioSplice</h1>
+            <p>Minimalist audio editor</p>
+        </header>
+        
+        <main>
+            <div id="upload-section" class="card">
+                <input type="file" id="audio-input" accept="audio/mpeg, audio/wav, audio/mp3, video/mp4, .mp4">
+                <label for="audio-input" class="btn primary-btn">Select Audio/Video File</label>
+                <div id="file-name">No file selected</div>
+            </div>
+
+            <div id="editor-section" class="hidden">
+                <div class="toolbar">
+                    <button id="btn-play-pause" class="btn">Play</button>
+                    <button id="btn-add-region" class="btn danger-btn">Add Cut Region</button>
+                    <button id="btn-split-channels" class="btn" title="Save Left/Right channels as separate Mono WAV files">Split L/R</button>
+                    <div class="spacer"></div>
+                    
+                    <input type="file" id="stamp-input" accept="audio/mpeg, audio/wav, audio/mp3, video/mp4, .mp4" class="hidden">
+                    <label for="stamp-input" class="btn" style="border-color: #a855f7; color: #c084fc;" title="Upload a short audio clip to automatically find and remove it from the main track">Auto-Detect Stamp</label>
+
+                    <button id="btn-export-wav" class="btn">Save WAV</button>
+                    <button id="btn-export-mp3" class="btn">Save MP3</button>
+                </div>
+                
+                <div id="waveform-container">
+                    <div id="waveform"></div>
+                    <div id="waveform-timeline"></div>
+                </div>
+                
+                <div class="instructions">
+                    <p>Highlight parts in red that you want to <b>cut off</b>.</p>
+                    <p>When you play the audio, the red sections will be skipped to let you preview the final result.</p>
+                </div>
+            </div>
+        </main>
+        
+        <div id="loading-overlay" class="hidden">
+            <div class="spinner"></div>
+            <p id="loading-text">Processing...</p>
+        </div>
+    </div>
+    <script type="module" src="./main.js"></script>
+</body>
+</html>
